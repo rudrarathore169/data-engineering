@@ -1,11 +1,13 @@
 import streamlit as st
 import joblib
+from pathlib import Path
 
-# -----------------------------
-# Load trained models
-# -----------------------------
-vectorizer = joblib.load("tfidf_vectorizer.pkl")
-svm_model = joblib.load("svm_intent_classifier.pkl")
+# Absolute path of the folder containing frontend.py
+BASE_DIR = Path(__file__).parent
+
+# Load models
+vectorizer = joblib.load(BASE_DIR / "tfidf_vectorizer.pkl")
+svm_model = joblib.load(BASE_DIR / "svm_intent_classifier.pkl")
 
 # -----------------------------
 # Prediction function
